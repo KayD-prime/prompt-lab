@@ -20,3 +20,10 @@ Every change to a prompt gets a line here: what changed, why, and what the suite
 - With two examples and no sarcasm rule, case 6 still failed in both real runs; a sarcastic example and the tone rule
   fixed it. A first wording of the refund rule made the model answer "Product, Billing" on case 3; "pick one category
   only, never two" fixed that.
+
+## urgency
+
+### v1 · 2026-10-16
+- New prompt: High / Medium / Low with a one-sentence reason. 5 cases; 5 pass on the practice server and in three
+  real runs. A looser first wording rated the double charge and the locked account Medium.
+- tests/test_prompts.py now runs every prompt in the library; tests/test_triage.py is gone.

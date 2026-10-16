@@ -1,0 +1,7 @@
+[
+  {"id": 1, "expect": {"format": ["Urgency", "Reason"], "equals": {"Urgency": "High"}}, "note": "money taken twice"},
+  {"id": 5, "expect": {"format": ["Urgency", "Reason"], "equals": {"Urgency": "Low"}}, "note": "praise"},
+  {"id": 6, "expect": {"format": ["Urgency", "Reason"], "equals": {"Urgency": "High"}}, "note": "sarcasm about a repeated failure"},
+  {"id": 9, "expect": {"format": ["Urgency", "Reason"], "equals": {"Urgency": "Low"}}, "note": "sales enquiry"},
+  {"id": 10, "expect": {"format": ["Urgency", "Reason"], "equals": {"Urgency": "High"}}, "note": "locked out"}
+]
