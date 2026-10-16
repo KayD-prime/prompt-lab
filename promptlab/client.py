@@ -45,7 +45,8 @@ def ask(messages: list[dict], temperature: float | None = None, max_tokens: int 
     kw = dict(model=m, messages=messages, max_tokens=max_tokens)
     if temperature is None:                 # tests run at 0 by default, so a change in the answer comes from the prompt
         temperature = float(os.environ.get("TEMPERATURE", "0"))
-    kw["temperature"] = temperature
+    if "claude" not in m:                   # Claude 5 models no longer take a temperature setting
+        kw["temperature"] = temperature
     if "gpt-oss" in m:                      # a reasoning model: keep its thinking short so the answer fits max_tokens
         kw["reasoning_effort"] = "low"
     t0 = time.perf_counter()
