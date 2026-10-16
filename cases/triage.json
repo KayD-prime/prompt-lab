@@ -1,0 +1,7 @@
+[
+  {"id": 1, "expect": {"format": ["Category", "Summary"], "category": "Billing", "mentions": ["refund"], "one_sentence": true}, "note": "the one it worked on"},
+  {"id": 2, "expect": {"format": ["Category", "Summary"], "category": "Delivery", "mentions": ["4502"], "one_sentence": true}},
+  {"id": 3, "expect": {"format": ["Category", "Summary"], "category": "Product", "mentions": ["chipped", "refund"], "one_sentence": true}, "note": "two problems in one email: both must survive"},
+  {"id": 4, "expect": {"format": ["Category", "Summary"], "category_in": ["Delivery", "Other"], "max_words": 25}, "note": "three words and no context"},
+  {"id": 5, "expect": {"format": ["Category", "Summary"], "category": "Other", "not_mentions": ["complain", "problem with"]}, "note": "praise, not a problem"}
+]
