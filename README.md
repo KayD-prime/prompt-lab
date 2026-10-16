@@ -81,7 +81,8 @@ without a key, and the real model is for the moments that matter.
 ## Branches
 
 - `main` is where the course starts: the tool, triage v1 and five cases.
-- `course-finished` is where it ends: ten cases, triage v2, the urgency prompt and a change log. The tag `triage-v2`
-  marks the first version that passed every case.
+- `course-finished` is where it ends: ten cases, triage v2, the urgency prompt and a change log. The commit
+  "triage v2: system role, category definitions, rules and three examples" is the first version that passed every
+  case; in Module 5 you tag it `triage-v2` in your own clone.
 - `tidy-prompt` is a change that looked harmless and broke a case. The course uses it to practise reading a failed
   run and rolling back.
