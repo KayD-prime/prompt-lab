@@ -21,6 +21,9 @@ Every change to a prompt gets a line here: what changed, why, and what the suite
   fixed it. A first wording of the refund rule made the model answer "Product, Billing" on case 3; "pick one category
   only, never two" fixed that.
 
+### v3 · 2026-10-16
+- Shortened the prompt: removed the tone rule and the third example to save tokens.
+
 ## urgency
 
 ### v1 · 2026-10-16
