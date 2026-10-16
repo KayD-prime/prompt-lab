@@ -50,7 +50,7 @@ def c_mentions(fields, words):
     low = _field(fields, "summary").lower() if "summary" in fields else fields["text"].lower()
     missing = [w for w in ([words] if isinstance(words, str) else words) if w.lower() not in low]
     if missing:
-        raise AssertionError(f"summary does not mention {missing}")
+        raise AssertionError(f"{'summary' if 'summary' in fields else 'answer'} does not mention {missing}")
 
 
 def c_not_mentions(fields, words):
@@ -61,10 +61,11 @@ def c_not_mentions(fields, words):
 
 
 def c_max_words(fields, n):
-    s = _field(fields, "summary")
+    """On a Category/Summary answer, the summary's length; on a free-text answer (a reply, a paragraph), the whole answer's."""
+    s = fields["summary"] if "summary" in fields else fields["text"]
     k = len(WORD.findall(s))
     if k > int(n):
-        raise AssertionError(f"summary is {k} words, limit {n}")
+        raise AssertionError(f"{'summary' if 'summary' in fields else 'answer'} is {k} words, limit {n}")
 
 
 def c_one_sentence(fields, _flag=True):

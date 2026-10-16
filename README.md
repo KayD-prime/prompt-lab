@@ -65,7 +65,7 @@ A case is a JSON object in `cases/<prompt>.json`:
 | `category: "Billing"` / `category_in: [...]` | the Category line matches |
 | `equals: {"Urgency": "High"}` | any named line matches a value |
 | `mentions: ["refund"]` / `not_mentions: [...]` | the summary does, or does not, contain each word |
-| `one_sentence: true` / `max_words: 25` | the summary's length is right |
+| `one_sentence: true` / `max_words: 25` | the summary's length is right (on an answer with no Summary: line, max_words counts the whole answer) |
 | `is_json: true` / `regex: "..."` | the answer parses as JSON, or matches a pattern |
 
 Checks are mechanical on purpose. They cannot tell you an answer is good; they tell you when it stops having the
