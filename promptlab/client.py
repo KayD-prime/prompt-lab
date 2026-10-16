@@ -39,11 +39,13 @@ def model_name() -> str:
 
 
 def ask(messages: list[dict], temperature: float | None = None, max_tokens: int = 600) -> tuple[str, dict]:
-    """Send the messages, return (answer text, info). info has model, prompt_tokens, completion_tokens, seconds."""
+    """Send the messages, return (answer text, info). info has model, prompt_tokens, completion_tokens, seconds.
+    temperature defaults to the TEMPERATURE setting, and that defaults to 0: as repeatable as a model gets."""
     c = client(); m = model_name()
     kw = dict(model=m, messages=messages, max_tokens=max_tokens)
-    if temperature is not None:
-        kw["temperature"] = temperature
+    if temperature is None:                 # tests run at 0 by default, so a change in the answer comes from the prompt
+        temperature = float(os.environ.get("TEMPERATURE", "0"))
+    kw["temperature"] = temperature
     if "gpt-oss" in m:                      # a reasoning model: keep its thinking short so the answer fits max_tokens
         kw["reasoning_effort"] = "low"
     t0 = time.perf_counter()

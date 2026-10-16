@@ -45,6 +45,7 @@ python -m promptlab show triage 6       # print the filled prompt and the model'
 python -m pytest -q                     # the same cases as tests, the way CI runs them
 ```
 
+Runs use temperature 0 unless `.env` says otherwise, so a different answer means the prompt changed, not the dice.
 Every run is saved under `runs/` (ignored by Git) with the model name, token counts and the full answers.
 
 ## Write a case
