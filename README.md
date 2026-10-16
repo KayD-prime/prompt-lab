@@ -77,3 +77,11 @@ the prompt the way the real model did in our recorded runs: it misreads the sarc
 tone, it flips the praise email between Other and Product unless the prompt says what Other covers, and it calls the
 wholesale enquiry a Product question unless the prompt says sales enquiries are Other. So the course's story holds
 without a key, and the real model is for the moments that matter.
+
+## Branches
+
+- `main` is where the course starts: the tool, triage v1 and five cases.
+- `course-finished` is where it ends: ten cases, triage v2, the urgency prompt and a change log. The tag `triage-v2`
+  marks the first version that passed every case.
+- `tidy-prompt` is a change that looked harmless and broke a case. The course uses it to practise reading a failed
+  run and rolling back.
