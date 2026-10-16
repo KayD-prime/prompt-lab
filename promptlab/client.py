@@ -11,7 +11,7 @@ _practice = None
 
 
 def practice_mode() -> bool:
-    key = os.environ.get("OPENAI_API_KEY", "")
+    key = os.environ.get("OPENAI_API_KEY", "") or os.environ.get("ANTHROPIC_API_KEY", "")
     return os.environ.get("PROMPTLAB_PRACTICE") == "1" or not key or "your_key" in key
 
 
@@ -30,7 +30,10 @@ def client():
         if practice_mode():
             _ensure_practice()
         from openai import OpenAI
-        _client = OpenAI()
+        if "anthropic.com" in os.environ.get("OPENAI_BASE_URL", "") and os.environ.get("ANTHROPIC_API_KEY"):
+            _client = OpenAI(api_key=os.environ["ANTHROPIC_API_KEY"])     # Claude keeps its usual variable name
+        else:
+            _client = OpenAI()
     return _client
 
 
