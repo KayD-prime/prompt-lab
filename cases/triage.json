@@ -3,5 +3,10 @@
   {"id": 2, "expect": {"format": ["Category", "Summary"], "category": "Delivery", "mentions": ["4502"], "one_sentence": true}},
   {"id": 3, "expect": {"format": ["Category", "Summary"], "category": "Product", "mentions": ["chipped", "refund"], "one_sentence": true}, "note": "two problems in one email: both must survive"},
   {"id": 4, "expect": {"format": ["Category", "Summary"], "category_in": ["Delivery", "Other"], "max_words": 25}, "note": "three words and no context"},
-  {"id": 5, "expect": {"format": ["Category", "Summary"], "category": "Other", "not_mentions": ["complain", "problem with"]}, "note": "praise, not a problem"}
+  {"id": 5, "expect": {"format": ["Category", "Summary"], "category": "Other", "not_mentions": ["complain", "problem with"]}, "note": "praise, not a problem; v1 flipped this to Product on a second run"},
+  {"id": 6, "expect": {"format": ["Category", "Summary"], "category": "Delivery", "not_mentions": ["pleased", "happy", "working well", "reliably"]}, "note": "sarcasm: v1 read 'third time this month' as praise in both real runs"},
+  {"id": 7, "expect": {"format": ["Category", "Summary"], "category": "Account", "mentions": ["password"], "max_words": 30}, "note": "French email, English summary"},
+  {"id": 8, "expect": {"format": ["Category", "Summary"], "category": "Account", "mentions": ["email address"], "not_mentions": ["late", "replaced"]}, "note": "quoted thread: only the newest message counts"},
+  {"id": 9, "expect": {"format": ["Category", "Summary"], "category": "Other", "mentions": ["200"]}, "note": "a sales enquiry is not a product fault; v1 said Product in both runs"},
+  {"id": 10, "expect": {"format": ["Category", "Summary"], "category": "Account", "mentions": ["locked"], "max_words": 30}, "note": "long email, the summary must stay short"}
 ]
